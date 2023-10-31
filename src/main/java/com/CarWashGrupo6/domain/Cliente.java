@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.CarWashGrupo6.domain;
 
 import jakarta.persistence.Column;
@@ -36,12 +33,13 @@ public class Cliente implements Serializable {
     private int telefono;
     private String rutaImagen;
     private boolean activo;
+    private boolean tipoCliente;
 
     //consructor vacio sin nada en base
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellidos, String correo, int telefono, String rutaImagen, boolean activo) {
+    public Cliente(String nombre, String apellidos, String correo, int telefono, String rutaImagen, boolean activo, boolean tipoCliente) {
         // this.username = username;
         // this.password = password;
         this.nombre = nombre;
@@ -50,6 +48,7 @@ public class Cliente implements Serializable {
         this.telefono = telefono;
         this.rutaImagen = rutaImagen;
         this.activo = activo;
+        this.tipoCliente = tipoCliente;
     }
 
 }

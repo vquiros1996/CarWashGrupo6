@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/springframework/Controller.java to edit this template
- */
+
 package com.CarWashGrupo6.controller;
 
 import com.CarWashGrupo6.domain.Cliente;
@@ -75,11 +72,17 @@ public class ClienteController {
         return "redirect:/cliente/listado";
     }
 
-    //
-    //  @GetMapping("/modificar/{idCliente}")
-    //   public String clienteModificar(Cliente cliente, Model model) {
-    //      cliente = clienteService.getCliente(cliente);
-    //      model.addAttribute("cliente", cliente);
-    //      return "/cliente/modifica";
-    //  }
+    @GetMapping("/mostrar/{correo}")
+    public String clienteMostrar(Cliente cliente) {//mapeado con la clase Cliente  que tambien tiene el correo
+        clienteService.getMostrar(cliente);
+        return "redirect:/cliente/listado";
+    }
+
+    
+      @GetMapping("/modificar/{idCliente}")
+       public String clienteModificar(Cliente cliente, Model model) {
+          cliente = clienteService.getCliente(cliente);
+         model.addAttribute("cliente", cliente);
+          return "/cliente/modifica";
+     }
 }

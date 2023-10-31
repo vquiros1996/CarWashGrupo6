@@ -6,13 +6,12 @@
 
     <body>
 
-        <!--<header th:replace="layout/plantilla :: header"/>  ELIMINE ESTE REPLACE PROQUE 
-        LLAMABA TODO EL HEADER DE PLANTILLA EN MANEJO CLIENTE-->
-        <!-- fragmento llamado de ManejoCliente agregar,listado -->
+        <header th:replace="layout/plantilla :: header"/> 
+        <section th:replace="cliente/manejoCliente :: botonesBuscar"/>
+        <section th:replace="cliente/manejoCliente :: buscarCliente"/>
         <section th:replace="cliente/manejoCliente :: botonesAgregar" />
         <section th:replace="cliente/manejoCliente :: agregarCliente" />
         <section th:replace="cliente/manejoCliente :: listadoClientes" />
-
 
         <footer th:replace="layout/plantilla :: footer"/> 
 

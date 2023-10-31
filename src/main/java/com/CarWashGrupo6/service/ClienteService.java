@@ -24,6 +24,8 @@ public interface ClienteService {
     //el activos nos sirve para traer todas las clientes que esten activas
     public List<Cliente> getClientes(boolean activos);
 
+    public List<Cliente> getMostrar(Cliente clinete);
+    
     //RETORNA UNA Cliente POR ID
     public Cliente getCategoria(Cliente cliente);
 
@@ -32,5 +34,7 @@ public interface ClienteService {
     public void save(Cliente cliente);
 
     public void delete(Cliente cliente);
+
+    public Cliente getCliente(Cliente cliente);
 
 }
