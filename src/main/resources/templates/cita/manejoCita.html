@@ -119,26 +119,29 @@
                                 <thead class="table-dark">
                                     <tr><th>#</th>
                                         <th>[[#{cita.nombre}]]</th>
-                                        <th>[[#{cita.apellidos}]]</th>
+                                        <!-- <th>[[#{cita.apellidos}]]</th> -->
                                         <th>[[#{cita.correo}]]</th>
                                         <th>[[#{cita.telefono}]]</th>
                                         <th>[[#{cita.activo}]]</th>
+                                        <th>[[#{accion.acciones}]]</th>
                                         <th></th></tr>
                                 </thead>
                                 <tbody>
                                     <tr th:each="cita, contador : ${citas}">
                                         <td>[[${contador.count}]]</td>
                                         <td>[[${cita.nombre}]]</td>
-                                        <td>[[${cita.apellidos}]]</td>
+                                       <!-- <td>[[#{cita.apellidos}]]</td>-->
                                         <td>[[${cita.correo}]]</td>
                                         <td>[[${cita.telefono}]]</td>
                                         <td th:text="${cita.activo} ? 'Activa' : 'Inactiva'" />
-
                                         <td><a th:href="@{/cita/eliminar/}+${cita.idCita}"
                                                class="btn btn-danger">
                                                 <i class="fas fa-trash"></i> [[#{accion.eliminar1}]]</a>
+
+
+
                                             <a th:href="@{/cita/modificar/}+${cita.idCita}"
-                                               class="btn btn-success">
+                                               class="btn btn-success"> 
                                                 <i class="fas fa-pencil"></i> [[#{accion.actualizar1}]]</a></td>
                                 </tbody>
                             </table>
