@@ -2,7 +2,8 @@
 
 <!CAR_WASH_HTML_GRUPO_6>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
     <head th:fragment="head">
         <title>Car Wash</title>
@@ -24,9 +25,10 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <ul class="navbar-nav">
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/cliente/listado}">[[#{plantilla.listado}]]</a></li>
+                        <ul class="navbar-nav" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENTE')">
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/cita/listado}">[[#{plantilla.listadoC}]]</a></li>
+                            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+                                <li class="nav-item px-2 " sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/cliente/listado}">[[#{plantilla.listado}]]</a></li>
                         </ul>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
@@ -36,7 +38,33 @@
                                     <li><a class="dropdown-item" th:href="@{/(lang=es)}">ES</a></li>
                                 </ul>
                             </li>
-                        </ul>                        
+                        </ul> 
+                        
+                        <!-- aparece si el usuario no esta loguado -->
+                        <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
+                            <li class="nav-item">
+                                <a th:href="@{/login}" class="nav-link">
+                                    <i class="fa fa-sign-in-alt"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- aparece si el usuario esta loguado -->
+                        <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                            <li class="nav-item text-dark my-auto">
+                                <i class="fa fa-user mx-2"></i><span sec:authentication="name">User</span>
+                            </li>
+
+                            <li class="nav-item text-white my-auto">
+                                <br>
+                                <form method="POST" th:action="@{/logout}">
+                                    <button class="btn btn-dark  mx-2">
+                                        <i class="fa fa-sign-out-alt"></i>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+
+
                     </div>
                 </div>
             </nav>
@@ -47,7 +75,7 @@
                             <h1><i class="fas"></i> [[#{plantilla.carwash}]]</h1>
                         </div>
                     </div>
-                    <img src="Imagenes/car-service.png" width="90"/>
+                   <!-- comment <img src="Imagenes/car-service.png" width="90"/>-->
                 </div>
             </section>
         </header>

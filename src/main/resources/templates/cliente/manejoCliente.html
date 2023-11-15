@@ -6,12 +6,12 @@
         LLAMABA TODO EL HEADER DE PLANTILLA EN MANEJO CLIENTE-->
     <!-- <head th:replace="~{layout/plantilla :: head}">-->
     <title>Lavado de Autos</title>
-    <img src="../Imagenes/car-service.png" width="90"/>
+    <-<!-- comment<img src="../Imagenes/car-service.png" width="90"/>-->
 </head>
 <body>
     <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
     <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-primary">
-        <div class="container">
+        <div class="container"sec:authorize="hasRole('ROLE_ADMIN')"><!-- Solo para admin -->
             <div class="row">
                 <div class="col-md-3">   
                     <button 
@@ -85,7 +85,7 @@
 
     <!-- 3 Sección principal para mostrar la informaccion de la entidad registro -->
     <section th:fragment="listadoClientes" id="clientes">
-        <div class="container">
+        <div class="container" sec:authorize="hasRole('ROLE_ADMIN')"> <!-- Escondemos la ancla solo para admin -->
             <div class="row">
                 <div class="col-md-9">
                     <div class="card">
@@ -109,10 +109,10 @@
                                         <td th:text="${cliente.activo} ? 'Activo' : 'Inactivo'" />
                                         <td th:text="${cliente.tipoCliente} ? 'Premium' : 'Regular'" />
                                         <td><a th:href="@{/cliente/eliminar/}+${cliente.idCliente}"
-                                               class="btn btn-danger">
+                                               class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')"> <!-- Escondemos la ancla solo para admin -->
                                                 <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                             <a th:href="@{/cliente/modificar/}+${cliente.idCliente}"
-                                               class="btn btn-success">
+                                               class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')"> <!-- Escondemos la ancla solo para admin -->
                                                 <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td>
                                 </tbody>
                             </table>
