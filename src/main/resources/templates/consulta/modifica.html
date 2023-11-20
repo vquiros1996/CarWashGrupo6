@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/plantilla :: head">
+    </head>
+    <body>
+
+        <section th:replace="consulta/manejoConsulta :: editarConsulta" />
+
+    </body>
+
+    <footer th:replace="layout/plantilla :: footer" />
+</html>
+
+PLANTILLA
+
+<li class="nav-item px-2"><a class="nav-link" th:href="@{/consulta/listado}">[[#{plantilla.consultas}]]</a></li>
+
+
