@@ -1,4 +1,3 @@
-
 package com.CarWashGrupo6.controller;
 
 import com.CarWashGrupo6.domain.Cliente;
@@ -78,11 +77,29 @@ public class ClienteController {
         return "redirect:/cliente/listado";
     }
 
-    
-      @GetMapping("/modificar/{idCliente}")
-       public String clienteModificar(Cliente cliente, Model model) {
-          cliente = clienteService.getCliente(cliente);
-         model.addAttribute("cliente", cliente);
-          return "/cliente/modifica";
-     }
+    @GetMapping("/modificar/{idCliente}")
+    public String clienteModificar(Cliente cliente, Model model) {
+        cliente = clienteService.getCliente(cliente);
+        model.addAttribute("cliente", cliente);
+        return "/cliente/modifica";
+    }
+
+    //Los métodos siguientes son para la prueba de consultas ampliadas
+    @GetMapping("/listado2")
+    public String listadoDos(Model model) {
+        var clientes = clienteService.getClientes(true);
+        model.addAttribute("clientes", clientes);
+        //model.addAttribute("clientes", listadoClientes);
+        return "/cliente/listado2";
+    }
+
+    @PostMapping("/query1")
+    public String consultaQuery1(@RequestParam(value = "nombre") String nombre,
+            @RequestParam(value = "apellidos") String apellidos, Model model) {
+        var clientes = clienteService.findByNombreAndNombreAllIgnoreCase(nombre, apellidos);
+        model.addAttribute("clientes", clientes);
+        model.addAttribute("nombre", nombre);
+        model.addAttribute("apellidos", apellidos);
+        return "/cliente/listado";
+    }
 }

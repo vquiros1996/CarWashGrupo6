@@ -36,5 +36,9 @@ public interface ClienteService {
     public void delete(Cliente cliente);
 
     public Cliente getCliente(Cliente cliente);
+    
+   //  public List<Cliente>findByTipoClienteFalse(boolean tipoCliente);
+  //  public List<Cliente>getClientesPorNombre(String nombre);
+      public List<Cliente>findByNombreAndNombreAllIgnoreCase(String nombre, String apellidos);
 
 }

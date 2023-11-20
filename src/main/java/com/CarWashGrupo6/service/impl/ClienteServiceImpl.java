@@ -70,4 +70,19 @@ public class ClienteServiceImpl implements ClienteService {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+   // @Override
+   // public List<Cliente> getClientesPorNombre(String nombre) {
+   //    return clienteDao.findByNombreContainingIgnoreCase(nombre);
+   // }
+
+   // @Override
+   // public List<Cliente> findByTipoClienteFalse(boolean tipoCliente) {
+   //   return clienteDao.findByTipoClienteFalse(tipoCliente);
+   // }
+
+    @Override
+    public List<Cliente> findByNombreAndNombreAllIgnoreCase(String nombre, String apellidos) {
+       return clienteDao.findByNombreAndNombreAllIgnoreCase(nombre, apellidos);
+    }
+
 }
