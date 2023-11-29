@@ -2,7 +2,6 @@ package com.CarWashGrupo6.controller;
 
 import com.CarWashGrupo6.domain.Consulta;
 import com.CarWashGrupo6.service.ConsultaService;
-import com.CarWashGrupo6.service.impl.FirebaseStorageServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,6 +38,8 @@ public class ConsultaController {
     public String consultaNuevo(Consulta consulta) {
         return "/consulta/modifica";
     }
+    
+   
 
     @PostMapping("/guardar")
     public String consultaGuardar(Consulta consulta) {

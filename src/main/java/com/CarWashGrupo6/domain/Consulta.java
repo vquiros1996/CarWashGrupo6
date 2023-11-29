@@ -16,7 +16,8 @@ import lombok.Data;
 @Data //Para crearcion de SET y GET
 @Entity //se le indica que CLIENTE que es la clase se manejara como una entidad
 @Table(name = "consulta")
-public class Consulta  implements Serializable{
+public class Consulta implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -29,19 +30,16 @@ public class Consulta  implements Serializable{
     private String apellidos;
     private String consulta;
     private String correo;
-    private int telefono;
-  
 
     //consructor vacio sin nada en base
     public Consulta() {
     }
 
-
-    public Consulta(String nombre, String apellidos, String consulta, String correo, int telefono) {
+    public Consulta(String nombre, String apellidos, String consulta, String correo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.consulta = consulta;
         this.correo = correo;
-        this.telefono = telefono;
     }
+
 }
