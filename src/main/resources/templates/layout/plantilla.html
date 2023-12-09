@@ -51,8 +51,9 @@
                         </ul>
                         <!-- aparece si el usuario esta loguado -->
                         <ul class="navbar-nav" sec:authorize="isAuthenticated()">
-                            <li class="nav-item text-dark my-auto">
-                                <i class="fa fa-user mx-2"></i><span sec:authentication="name">User</span>
+                            <li class="nav-item text-white my-auto" th:if="${#ctx.session.usuarioImagen != null} ">
+                                <img th:src="${#ctx.session.usuarioImagen}" height="40" />
+                                <i class="fa fa-user mx-1"></i><span sec:authentication="name">User</span> <!--nombre de usuario -->
                             </li>
 
                             <li class="nav-item text-white my-auto">
