@@ -30,6 +30,7 @@
                             <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
                                 <li class="nav-item px-2 " sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/cliente/listado}">[[#{plantilla.listado}]]</a></li>
                                 <li class="nav-item px-2 " sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/consulta/listado}">[[#{plantilla.consultas}]]</a></li>
+                                <li class="nav-item px-2 " sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>
                         </ul>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">

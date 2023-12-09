@@ -1,0 +1,28 @@
+package com.CarWashGrupo6.domain;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+/**
+ *
+ * @author quiro
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class Item extends Producto {
+
+    private int cantidad; //Almacenar la cantidad de items de un producto
+
+    public Item() {
+    }
+
+    public Item(Producto producto) {
+        super.setIdProducto(producto.getIdProducto());
+        super.setDescripcion(producto.getDescripcion());
+        super.setDetalle(producto.getDetalle());
+        super.setPrecio(producto.getPrecio());
+        super.setActivo(producto.isActivo());
+        super.setRutaImagen(producto.getRutaImagen());
+        this.cantidad = 0;
+    }
+}

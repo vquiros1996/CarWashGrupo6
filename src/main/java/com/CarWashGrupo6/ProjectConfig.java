@@ -1,18 +1,14 @@
 package com.CarWashGrupo6;
 
-//import com.CarWashGrupo6.service.UsuarioService;
 import java.util.Locale;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.LocaleResolver;
@@ -64,18 +60,6 @@ public class ProjectConfig implements WebMvcConfigurer {
         //registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
 
-    //llama a la implementacion creada en UsuarioServiceImpl
-    @Autowired
-    private UserDetailsService usuarioDetailsService;
-    
-    //para descodificar la contrasenas
-    @Autowired
-    public void configurerGlobal(AuthenticationManagerBuilder builder) throws Exception {
-        builder.userDetailsService(usuarioDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-    }
-    
-    
-    
     //metodo para saber a que tiene permiso cada cosa
     
     @Bean
@@ -88,6 +72,8 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .permitAll()
                 //estos requests solo para ADMIN role
                 .requestMatchers(
+                        "/producto/nuevo", "/producto/guardar",
+                        "/producto/modificar/**", "/producto/eliminar/**",
                         "/cita/nuevo", "/cita/guardar",
                         "/cita/modificar/**", "/cita/eliminar/**",
                         "/cliente/nuevo", "/cliente/guardar",
@@ -98,8 +84,9 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/consulta/guardar/**","/consulta/modificar/2/**","/consulta/eliminar/**"
                 ).hasRole("ADMIN")
                 .requestMatchers(
+                        "/producto/listado",
                         "/cita/listado"
-                ).hasAnyRole("ADMIN", "CLIENT") //o un rol o otro
+                ).hasAnyRole("ADMIN", "CLIENTE") //o un rol o otro
                 /*.requestMatchers("/facturar/carrito")
                 .hasRole("CLIENTE")*/
                 )
@@ -112,7 +99,7 @@ public class ProjectConfig implements WebMvcConfigurer {
     /* El siguiente método se utiliza para completar la clase no es 
     realmente funcional, la próxima semana se reemplaza con usuarios de BD */
     
-    /*@Bean //objeto manejado en memoria
+    @Bean //objeto manejado en memoria
     //sirve para manejar los users en memoria
     public UserDetailsService users() {
         //usuario admin
@@ -131,5 +118,5 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .build();
         
         return new InMemoryUserDetailsManager(cliente, admin);
-    }*/
+    }
 }
