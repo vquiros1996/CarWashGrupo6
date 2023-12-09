@@ -10,13 +10,13 @@ import com.CarWashGrupo6.domain.Usuario;
 import com.CarWashGrupo6.domain.Venta;
 import com.CarWashGrupo6.service.ItemService;
 import static com.CarWashGrupo6.service.ItemService.listaItems;
-import com.CarWashGrupo6.service.UsuarioService;
 import java.util.List;
 import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import com.CarWashGrupo6.service.UsuarioDetailsService;
 
 /**
  *
@@ -92,7 +92,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Autowired
-    private UsuarioService uuarioService;
+    private UsuarioDetailsService uuarioService;
 
     @Autowired
     private FacturaDao facturaDao;

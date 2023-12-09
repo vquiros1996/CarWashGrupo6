@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/springframework/Controller.java to edit this template
- */
 package com.CarWashGrupo6.controller;
 
 import com.CarWashGrupo6.domain.Usuario;
@@ -28,7 +24,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-   /* @GetMapping("/listado")
+    @GetMapping("/listado")
     public String listado(Model model) {
         var usuarios = usuarioService.getUsuarios();
         //los agregar al modo
@@ -36,7 +32,7 @@ public class UsuarioController {
         model.addAttribute("totalUsuarios", usuarios.size());
         //y lo transporta a la vista
         return "/usuario/listado";
-    }*/
+    }
 
     @GetMapping("/nuevo")
     public String usuarioNuevo(Usuario usuario) {
@@ -46,7 +42,7 @@ public class UsuarioController {
     @Autowired
     private FirebaseStorageService firebaseStorageService;
 
-    /*@PostMapping("/guardar")
+    @PostMapping("/guardar")
     public String usuarioGuardar(Usuario usuario,
             @RequestParam("imagenFile") MultipartFile imagenFile) {
         //validar si es una creacion o una modificacion (si trae ID)
@@ -75,9 +71,9 @@ public class UsuarioController {
         }
         usuarioService.save(usuario,true);
         return "redirect:/usuario/listado";
-    }*/
+    }
 
-    /*@GetMapping("/eliminar/{idUsuario}")
+    @GetMapping("/eliminar/{idUsuario}")
     public String usuarioEliminar(Usuario usuario) {
         usuarioService.delete(usuario);
         return "redirect:/usuario/listado";
@@ -88,5 +84,5 @@ public class UsuarioController {
         usuario = usuarioService.getUsuario(usuario);
         model.addAttribute("usuario", usuario);
         return "/usuario/modifica";
-    }*/
+    }
 }
