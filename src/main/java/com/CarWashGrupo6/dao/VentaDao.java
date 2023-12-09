@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
- * @author quiro
+ * @author quir
  */
 public interface VentaDao extends JpaRepository <Venta,Long> {
      
