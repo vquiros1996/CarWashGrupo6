@@ -11,7 +11,7 @@ import java.util.List;
 
     
 public interface ItemService {     
-    List<Item> listaItems = new ArrayList<>();
+     List<Item> listaItems = new ArrayList<>();
     
     public List<Item> gets();
     

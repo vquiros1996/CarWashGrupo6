@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ItemServiceImpl implements ItemService {
 
-    @Override
+     @Override
     public List<Item> gets() {
         return listaItems;
     }
@@ -37,11 +37,18 @@ public class ItemServiceImpl implements ItemService {
         for (Item i : listaItems) {
             //Busca si ya existe el producto en el carrito
             if (Objects.equals(i.getIdProducto(), item.getIdProducto())) {
-                if (!existe) {//Si no está el producto en el carrito se agrega cantidad =1.            
-                    item.setCantidad(1);
-                    listaItems.add(item);
+                //Valida si aún puede colocar un item adicional -segun existencias-
+                if (i.getCantidad() < item.getExistencias()) {
+                    //Incrementa en 1 la cantidad de elementos
+                    i.setCantidad(i.getCantidad() + 1);
                 }
+                existe = true;
+                break;
             }
+        }
+        if (!existe) {//Si no está el producto en el carrito se agrega cantidad =1.            
+            item.setCantidad(1);
+            listaItems.add(item);
         }
     }
 
@@ -128,6 +135,7 @@ public class ItemServiceImpl implements ItemService {
             Venta venta = new Venta(factura.getIdFactura(), i.getIdProducto(), i.getPrecio(), i.getCantidad());
             ventaDao.save(venta);
             Producto producto = productoDao.getReferenceById(i.getIdProducto());
+            producto.setExistencias(producto.getExistencias()-i.getCantidad());
             productoDao.save(producto);
             total += i.getPrecio() * i.getCantidad();
         }

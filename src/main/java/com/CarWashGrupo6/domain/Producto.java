@@ -23,24 +23,27 @@ public class Producto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto")
-    private Long idProducto; // Transforma en id_categoria
+    private Long idProducto; 
     private String descripcion;
     private String detalle;
     private double precio;
+    private int existencias;
     private String rutaImagen;
     private boolean activo;
-    
 
 
  public Producto() {
     }
 
-    public Producto(String descripcion, String detalle, double precio, String rutaImagen, boolean activo) {
+    public Producto(String descripcion, String detalle, double precio, int existencias, String rutaImagen, boolean activo) {
         this.descripcion = descripcion;
         this.detalle = detalle;
         this.precio = precio;
+        this.existencias = existencias;
         this.rutaImagen = rutaImagen;
         this.activo = activo;
     }
+
+    
 
 }

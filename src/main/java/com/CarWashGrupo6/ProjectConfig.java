@@ -68,7 +68,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                 //requests con las rutas  
                 .requestMatchers("/", "/index", "/errores/**", "/error", "/error/***",
                         "/carrito/**", "/pruebas/**", "/reportes/**",
-                        "/registro/**", "/js/**", "/webjars/**")
+                        "/registro/**", "/js/**", "/webjars/**","/refrescarBoton")
                 .permitAll()
                 //estos requests solo para ADMIN role
                 .requestMatchers(
@@ -85,7 +85,8 @@ public class ProjectConfig implements WebMvcConfigurer {
                 ).hasRole("ADMIN")
                 .requestMatchers(
                         "/producto/listado",
-                        "/cita/listado"
+                        "/cita/listado",
+                        "/usuario/listado"
                 ).hasAnyRole("ADMIN", "CLIENTE") //o un rol o otro
                 /*.requestMatchers("/facturar/carrito")
                 .hasRole("CLIENTE")*/
