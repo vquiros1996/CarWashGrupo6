@@ -23,7 +23,7 @@ public class Rol implements Serializable{
     private Long idRol;
      
      @NotEmpty
-     private Long nombre;
+     private String nombre;
      
      @Column(name = "id_usuario")
      private Long idUsuario;
