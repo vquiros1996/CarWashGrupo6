@@ -111,10 +111,10 @@
                                             <td sec:authorize="hasRole('ROLE_ADMIN')">
                                                 <a th:href="@{/usuario/eliminar/}+${usuario.idUsuario}"
                                                    class="btn btn-danger">
-                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
+                                                    <i class="fas fa-trash"></i> [[#{usuario.eliminar}]]</a>
                                                 <a th:href="@{/usuario/modificar/}+${usuario.idUsuario}"
                                                    class="btn btn-success">
-                                                    <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
+                                                    <i class="fas fa-pencil"></i> [[#{usuario.modificar}]]</a></td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -152,7 +152,7 @@
                                     <div class="col">
                                         <div class="card">
                                             <div class="card-header">
-                                                <h4>[[#{accion.actualizar}]]</h4>
+                                                <h4>[[#{usuario.modificar}]]</h4>
                                             </div>
                                             <div class="card-body">
                                                 <div class="mb-3">
@@ -215,7 +215,7 @@
                     <div class="col-md-4 d-grid" sec:authorize="hasRole('ROLE_ADMIN')">                                
                         <a th:href="@{/usuario/eliminar/}+${usuario.idUsuario}"
                            class="btn btn-danger">
-                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                            <i class="fas fa-trash"></i> [[#{usuario.eliminar}]]
                         </a>
                     </div>
                     <div class="col-md-4 d-grid" sec:authorize="hasRole('ROLE_ADMIN')">
