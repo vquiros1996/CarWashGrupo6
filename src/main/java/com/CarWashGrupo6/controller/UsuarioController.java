@@ -3,6 +3,7 @@ package com.CarWashGrupo6.controller;
 import com.CarWashGrupo6.domain.Usuario;
 import com.CarWashGrupo6.service.FirebaseStorageService;
 import com.CarWashGrupo6.service.UsuarioService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -26,10 +27,12 @@ public class UsuarioController {
 
     @GetMapping("/listado")
     public String listado(Model model) {
-        var usuarios = usuarioService.getUsuarios();
+
+        List<Usuario> listadoUsuarios = usuarioService.getUsuarios();
+        //var usuarios = usuarioService.getUsuarios();
         //los agregar al modo
-        model.addAttribute("usuarios", usuarios);
-        model.addAttribute("totalUsuarios", usuarios.size());
+        model.addAttribute("usuarios", listadoUsuarios);
+        model.addAttribute("totalUsuarios", listadoUsuarios.size());
         //y lo transporta a la vista
         return "/usuario/listado";
     }
@@ -43,33 +46,9 @@ public class UsuarioController {
     private FirebaseStorageService firebaseStorageService;
 
     @PostMapping("/guardar")
-    public String usuarioGuardar(Usuario usuario,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {
-        //validar si es una creacion o una modificacion (si trae ID)
-        boolean nuevo = true;
-        if (usuario.getIdUsuario() != 0) {
-            nuevo = false;
-            Usuario actual = usuarioService.getUsuario(usuario);
-            usuario.setPassword(actual.getPassword());
-            usuario.setUsername(actual.getUsername());
-            usuario.setRoles(actual.getRoles());
-            if (imagenFile.isEmpty()){
-                usuario.setRutaImagen(actual.getRutaImagen());
-            }
-        }
-        else {
-            usuario.setPassword(new BCryptPasswordEncoder().encode(usuario.getPassword()));
-            usuario.setActivo((true)); //para crearlo siempre activo
-        }
-        if (!imagenFile.isEmpty()) {
-            usuarioService.save(usuario,false);
-            usuario.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile,
-                            "usuario",
-                            usuario.getIdUsuario()));
-        }
-        usuarioService.save(usuario,true);
+    public String usuarioGuardar(Usuario usuario) {
+
+        usuarioService.save(usuario, true);
         return "redirect:/usuario/listado";
     }
 

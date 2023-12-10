@@ -24,8 +24,10 @@ public class ConsultaController {
     //me hace peticiones de tipo get
     @GetMapping("/listado")//se accede por este /listado
     public String inicio(Model model) {
+        
+        List<Consulta> listadoConsultas = consultaService.getConsultas(true);
 
-        List<Consulta> listadoConsultas = consultaService.getConsultas(false); //falso para que me muestre mis clientes
+     //   List<Consulta> listadoConsultas = consultaService.getConsultas(false); //falso para que me muestre mis clientes
         //con el objeto model usarlo como transporte entre controlador y la vista
         //  model.addAttribute(attributeName, categoriaService) USAR ESTE
         model.addAttribute("consultas", listadoConsultas); //utilizo el segundo el que tiene dos valores String atriute name y object
