@@ -27,10 +27,11 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <ul class="navbar-nav" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENTE')">
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/cita/listado}">[[#{plantilla.listadoC}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>
+                                <li class="nav-item px-2"><a class="nav-link" th:href="@{/consulta/listado}">[[#{plantilla.consultas}]]</a></li>
+
                             <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
                                 <li class="nav-item px-2 " sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/cliente/listado}">[[#{plantilla.listado}]]</a></li>
-                                <li class="nav-item px-2 " sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/consulta/listado}">[[#{plantilla.consultas}]]</a></li>
-                                <li class="nav-item px-2 " sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>
                                 <li class="nav-item px-2"  sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
                         </ul>
                         <ul class="navbar-nav">
@@ -53,7 +54,7 @@
                         </ul>
                         <!-- aparece si el usuario esta loguado -->
                         <ul class="navbar-nav" sec:authorize="isAuthenticated()">
-                            <li class="nav-item text-white my-auto" th:if="${#ctx.session.usuarioImagen != null} ">
+                            <li class="nav-item text-black my-auto" th:if="${#ctx.session.usuarioImagen != null} ">
                                 <img th:src="${#ctx.session.usuarioImagen}" height="40" />
                                 <i class="fa fa-user mx-1"></i><span sec:authentication="name">User</span> <!--nombre de usuario -->
                             </li>

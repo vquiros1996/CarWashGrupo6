@@ -9,7 +9,7 @@
 <body>
     <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
     <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-primary">
-        <div class="container"sec:authorize="hasRole('ROLE_ADMIN')">
+        <div class="container">
             <div class="row">
                 <div class="col-md-3">   
                     <button 
@@ -57,9 +57,6 @@
                                 <label for="correo">[[#{consulta.correo}]]</label>
                                 <input type="text" class="form-control" name="correo" required="true" placeholder="Digite el correo electronico" style ="background-color: lightblue"/>
                             </div>
-                            
-
-
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-success bg-dark text-white" type="submit">Guardar</button>
@@ -168,7 +165,7 @@
                                                        style ="background-color: lightblue">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="correo">[[#{consulta.consulta}]]</label>
+                                                <label for="consulta">[[#{consulta.consulta}]]</label>
                                                 <input type="text" 
                                                        class="form-control" 
                                                        name="consulta" 

@@ -24,8 +24,6 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_consulta")
     private Long idConsulta;
-    //  private String username;
-    //  private String password;
     private String nombre;
     private String apellidos;
     private String consulta;

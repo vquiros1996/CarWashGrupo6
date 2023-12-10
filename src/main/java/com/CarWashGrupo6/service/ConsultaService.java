@@ -17,7 +17,7 @@ public interface ConsultaService {
     public List<Consulta> getMostrar(Consulta consulta);
     
     
-    public Consulta getCategoria(Consulta consulta);
+    //public Consulta getCategoria(Consulta consulta);
 
     
     public void save(Consulta consulta);

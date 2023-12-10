@@ -87,19 +87,24 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .requestMatchers(
                         "/producto/nuevo", "/producto/guardar",
                         "/producto/modificar/**", "/producto/eliminar/**",
-                        "/cita/nuevo", "/cita/guardar",
-                        "/cita/modificar/**", "/cita/eliminar/**",
+                        
+                       
+                        
                         "/cliente/nuevo", "/cliente/guardar",
                         "/cliente/modificar/**", "/cliente/eliminar/**",
                         "/usuario/nuevo", "/usuario/guardar",
                         "/usuario/modificar/**", "/usuario/eliminar/**",
-                        "/reportes/**","/cliente/listado/**","/usuario/listado/**","/consulta/listado/**",
-                        "/consulta/guardar/**","/consulta/modificar/2/**","/consulta/eliminar/**"
+                        "/reportes/**","/cliente/listado/**","/usuario/listado/**"
                 ).hasRole("ADMIN")
                 .requestMatchers(
                         "/producto/listado",
-                        "/cita/listado",
-                        "/usuario/listado"
+                        
+                        "/cita/listado","/cita/nuevo", "/cita/guardar/**",
+                        "/cita/modificar/**", "/cita/eliminar/**",
+                        
+                        "/consulta/listado/**","/consulta/guardar/**",
+                        "/consulta/modificar/**","/consulta/eliminar/**"
+                        
                 ).hasAnyRole("ADMIN", "CLIENTE") //o un rol o otro
                 /*.requestMatchers("/facturar/carrito")
                 .hasRole("CLIENTE")*/

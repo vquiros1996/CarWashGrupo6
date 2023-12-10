@@ -26,19 +26,15 @@ public class ConsultaServiceImpl implements ConsultaService {
     @Transactional(readOnly = true) //uso el importe de spring en vez de jakarta en este readOnly=true
     public List<Consulta> getConsultas(boolean activos) {
         List<Consulta> consulta = consultaDao.findAll(); // el findAll me permite buscar/encontrar todo
-        if (activos) {
-            //remover si C es true el isActivo() metodo viene de mi lombok libreria, es con IS porque es boolean
-                
-        }
-
+        var lista = consultaDao.findAll();
         return consulta;
     }
 
     //METODO QUE RETORNA UNA SOLA LISTA***
     
-    //@Override
+    @Override
+    @Transactional(readOnly = true)
     public Consulta getConsulta(Consulta consulta) {
-
         return consultaDao.findById(consulta.getIdConsulta()).orElse(null);
 
     }
@@ -62,8 +58,8 @@ public class ConsultaServiceImpl implements ConsultaService {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
+    /*@Override
     public Consulta getCategoria(Consulta consulta) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }*/
 }
