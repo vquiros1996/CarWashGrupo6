@@ -25,19 +25,26 @@ public class Consulta implements Serializable {
     @Column(name = "id_consulta")
     private Long idConsulta;
     private String nombre;
-    private String apellidos;
-    private String consulta;
+    private String pregunta;
+    //private String consulta;
     private String correo;
 
     //consructor vacio sin nada en base
     public Consulta() {
     }
 
-    public Consulta(String nombre, String apellidos, String consulta, String correo) {
+    public Consulta(String nombre, String pregunta, String correo) {
         this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.consulta = consulta;
+        this.pregunta = pregunta;
+        //this.consulta = consulta;
         this.correo = correo;
     }
+    
+    /*public Consulta(String nombre, String pregunta, String consulta, String correo) {
+        this.nombre = nombre;
+        this.pregunta = pregunta;
+        //this.consulta = consulta;
+        this.correo = correo;
+    }*/
 
 }

@@ -14,7 +14,7 @@ import java.util.List;
 public interface ConsultaService {
      public List<Consulta> getConsultas(boolean activos);
 
-    public List<Consulta> getMostrar(Consulta consulta);
+    //public List<Consulta> getMostrar(Consulta consulta);
     
     
     //public Consulta getCategoria(Consulta consulta);

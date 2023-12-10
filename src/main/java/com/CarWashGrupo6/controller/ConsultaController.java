@@ -54,11 +54,11 @@ public class ConsultaController {
         return "redirect:/consulta/listado";
     }
 
-    @GetMapping("/mostrar/{correo}")
+    /*@GetMapping("/mostrar/{correo}")
     public String consultaMostrar(Consulta consulta) {
         consultaService.getMostrar(consulta);
         return "redirect:/consulta/listado";
-    }
+    }*/
 
     @GetMapping("/modificar/{idConsulta}")
     public String consultaModificar(Consulta consulta, Model model) {

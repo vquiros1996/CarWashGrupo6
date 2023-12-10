@@ -33,7 +33,6 @@
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header bg-primary text-white mb-3">      
-                        <img src="/Imagenes/usuario.png" width="90"/> 
                         <br>
                             <h5 class="modal-title">[[#{consulta.agregar}]]</h5>        
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -43,15 +42,11 @@
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="nombre">[[#{consulta.nombre}]]</label>
-                                <input type="text" class="form-control" name="nombre" required="true" placeholder="Digite nombre del cliente" style ="background-color: lightblue"/>
+                                <input type="text" class="form-control" name="nombre" required="true" placeholder="Digite su nombre completo" style ="background-color: lightblue"/>
                             </div>
                             <div class="mb-3">
-                                <label for="apellidos">[[#{consulta.apellidos}]]</label>
-                                <input type="text" class="form-control" name="apellidos" required="true" placeholder="Digite el apellido del cliente"  style ="background-color: lightblue"/>
-                            </div>
-                            <div class="mb-3">
-                                <label for="consulta">[[#{consulta.consulta}]]</label>
-                                <input type="text" class="form-control" name="consulta" required="true" placeholder="Digite su consulta" style ="background-color: lightblue"/>
+                                <label for="pregunta">[[#{consulta.pregunta}]]</label>
+                                <input type="text" class="form-control" name="pregunta" required="true" placeholder="Digite su consulta"  style ="background-color: lightblue"/>
                             </div>
                             <div class="mb-3">
                                 <label for="correo">[[#{consulta.correo}]]</label>
@@ -80,8 +75,7 @@
                                 <thead class="table-dark">
                                     <tr><th>#</th>
                                         <th>[[#{consulta.nombre}]]</th>
-                                        <th>[[#{consulta.apellidos}]]</th>
-                                        <th>[[#{consulta.consulta}]]</th>
+                                        <th>[[#{consulta.pregunta}]]</th>
                                         <th>[[#{consulta.correo}]]</th>
                                         <th>[[#{accion.acciones}]]</th>
                                         <th></th></tr>
@@ -90,10 +84,9 @@
                                     <tr th:each="consulta, contador : ${consultas}">
                                         <td>[[${contador.count}]]</td>
                                         <td>[[${consulta.nombre}]]</td>
-                                        <td>[[${consulta.apellidos}]]</td>
-                                        <td>[[${consulta.consulta}]]</td>
+                                        <td>[[${consulta.pregunta}]]</td>
                                         <td>[[${consulta.correo}]]</td>
-                                        
+
 
 
                                         <td><a th:href="@{/consulta/eliminar/}+${consulta.idConsulta}"
@@ -132,7 +125,7 @@
                       class="was-validated"                          
                       enctype="multipart/form-data">
                     <input type="hidden" name="idConsulta" th:field="*{idConsulta}"/>
-                    
+
                     <section th:replace="~{consulta/manejoConsulta :: botonesEditar}"/>
                     <div id=details>
                         <div class="container">
@@ -155,25 +148,16 @@
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="apellidos">[[#{consulta.apellidos}]]</label>
+                                                <label for="pregunta">[[#{consulta.pregunta}]]</label>
                                                 <input type="text" 
                                                        class="form-control" 
-                                                       name="apellidos" 
-                                                       th:field="*{apellidos}"
+                                                       name="pregunta" 
+                                                       th:field="*{pregunta}"
                                                        required="true"
-                                                       placeholder="Digite el apellido del cliente"  
+                                                       placeholder="Digite el pregunta del cliente"  
                                                        style ="background-color: lightblue">
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="consulta">[[#{consulta.consulta}]]</label>
-                                                <input type="text" 
-                                                       class="form-control" 
-                                                       name="consulta" 
-                                                       th:field="*{consulta}"
-                                                       required="true"
-                                                       placeholder="Digite la consulta" 
-                                                       style="background-color: lightblue">
-                                            </div>
+
                                             <div class="mb-3">
                                                 <label for="correo">[[#{consulta.correo}]]</label>
                                                 <input type="text" 
@@ -184,10 +168,10 @@
                                                        placeholder="Digite su correo" 
                                                        style="background-color: lightblue">
                                             </div>
-                                            
 
-                                            
-                                            
+
+
+
                                         </div>
                                     </div>
                                 </div>

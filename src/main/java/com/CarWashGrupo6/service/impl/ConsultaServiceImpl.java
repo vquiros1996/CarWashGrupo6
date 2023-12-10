@@ -53,10 +53,10 @@ public class ConsultaServiceImpl implements ConsultaService {
         consultaDao.delete(consulta);
     }
 
-    @Override
+    /*@Override
     public List<Consulta> getMostrar(Consulta consulta) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }*/
 
     /*@Override
     public Consulta getCategoria(Consulta consulta) {
