@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/springframework/Controller.java to edit this template
- */
+
 package com.CarWashGrupo6.controller;
 import jakarta.mail.MessagingException;
 import com.CarWashGrupo6.domain.Usuario;

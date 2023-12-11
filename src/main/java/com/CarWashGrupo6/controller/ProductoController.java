@@ -41,7 +41,7 @@ public class ProductoController {
 
     @GetMapping("/nuevo")
     public String productoNuevo(Producto producto) {
-        return "/proaducto/modifica";
+        return "/producto/modifica";
     }
 
    
@@ -49,8 +49,9 @@ public class ProductoController {
     @PostMapping("/guardar")
     public String productoGuardar(Producto producto,
             @RequestParam("imagenFile") MultipartFile imagenFile) {
+        
         if (!imagenFile.isEmpty()) {
-            productoService.save(producto);
+           productoService.save(producto);
             producto.setRutaImagen(
                     firebaseStorageService.cargaImagen(
                             imagenFile,
@@ -60,6 +61,10 @@ public class ProductoController {
         productoService.save(producto);
         return "redirect:/producto/listado";
     }
+    
+    
+    
+    
 
     @GetMapping("/eliminar/{idProducto}")
     public String proaductoEliminar(Producto producto) {
