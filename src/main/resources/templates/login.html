@@ -12,69 +12,75 @@
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://thumbs.dreamstime.com/b/usando-uma-escova-para-lavar-um-carro-em-facilidade-de-lavagem-do-no-dia-ver-o-ensolarado-carros-manual-com-gua-pressurizada-na-152473982.jpg" class="d-block w-40" alt="...">
+                            <img src="https://thumbs.dreamstime.com/b/usando-uma-escova-para-lavar-um-carro-em-facilidade-de-lavagem-do-no-dia-ver-o-ensolarado-carros-manual-com-gua-pressurizada-na-152473982.jpg" class="d-block w-40" alt="..." width="400">
                         </div>
-                        <div class="carousel-item">
-                            <img src="https://th.bing.com/th/id/OIP.0bkjqcSqeYuJSRBZx3SSawHaEf?rs=1&pid=ImgDetMain" class="d-block w-40" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://th.bing.com/th/id/R.74a68b4fde821ed2f1ae1dedc1127fcb?rik=k3MC3z83OF6zIA&pid=ImgRaw&r=0" class="d-block w-40" alt="...">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-                <div class="col-md-3"></div><!-- div de tamano 3  -->
-                <div class="col-md-6"> <!--contenedor central  -->
-                    <div class="card"> <!-- card es una clase de bootstap -->
-                        <div class="card-header bg-success"><h2>[[#{login.login}]]</h2></div>
-                        <div class="card-body"> <!-- El cuerpo de nuestro login  -->
-                            <!-- las cosas que debe llevar  -->
-                            <form method="POST" th:action="@{/login}"><!-- debe de llevar un POST con /login -->
-                                <!-- Primer grupo   -->
-                                <div class="form-group row my-3">
-                                    <!-- que tiene un label y un icono de user   -->
-                                    <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>[[#{login.username}]]:</label>
-                                    <!-- Primer opcional   -->
-                                    <div class="col-md-7 my-auto">
-                                        <!-- input donde meto la informacion del username    -->
-                                        <input class="form-control" type="text" name="username" id="username"/>
-                                    </div>
+
+                        <br>
+                            <div class="carousel-item">
+                                <img src="https://th.bing.com/th/id/OIP.0bkjqcSqeYuJSRBZx3SSawHaEf?rs=1&pid=ImgDetMain" class="d-block w-40" alt="..." width="400">
+                            </div>
+
+                            <br>
+                                <div class="carousel-item">
+                                    <img src="https://th.bing.com/th/id/R.74a68b4fde821ed2f1ae1dedc1127fcb?rik=k3MC3z83OF6zIA&pid=ImgRaw&r=0" class="d-block w-40" alt="..." width="400">
                                 </div>
-                                <!-- Segundo grupo   -->
-                                <div class="form-group row my-3">
-                                    <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{login.password}]]</label>
-                                    <div class="col-md-7 my-auto">
-                                        <!-- input donde meto la informacion del passwd    -->
-                                        <input class="form-control" type="password" name="password" id="password"/>
-                                    </div>
                                 </div>
-                                <div class="card-footer col text-center">
-                                    <button class="btn btn-primary" >
-                                        <!-- En nuestro controlador creamos una accion para registrar nuevos usuarios   -->
-                                        <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a></button>
-                                    <button class="btn btn-info" >         
-                                        <a th:href="@{/registro/recordar}" class="btn"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a></button>
-                                    <!-- Toma el valor del username y password antes agregados y lo envia a la accion de login    -->
-                                    <button class="btn btn-success" type="submit">
-                                        <span class="btn"><i class="fas fa-sign-in-alt"></i>
-                                            [[#{login.login}]]</span></button>
-                                </div>
-                            </form>                            
-                        </div>
-                    </div>
-                    <div th:if="${param.error != null}">
-                        <h3>[[#{error.login}]]</h3>
-                    </div>
-                </div>
-            </div>           
-        </div>
-        <footer th:replace="~{layout/plantilla :: footer}"/>
-    </body>
-</html>
+                                <br>
+                                    <br>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                        </div>
+                                        <div class="col-md-3"></div><!-- div de tamano 3  -->
+                                        <div class="col-md-6"> <!--contenedor central  -->
+                                            <div class="card"> <!-- card es una clase de bootstap -->
+                                                <div class="card-header bg-success"><h2>[[#{login.login}]]</h2></div>
+                                                <div class="card-body"> <!-- El cuerpo de nuestro login  -->
+                                                    <!-- las cosas que debe llevar  -->
+                                                    <form method="POST" th:action="@{/login}"><!-- debe de llevar un POST con /login -->
+                                                        <!-- Primer grupo   -->
+                                                        <div class="form-group row my-3">
+                                                            <!-- que tiene un label y un icono de user   -->
+                                                            <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>[[#{login.username}]]:</label>
+                                                            <!-- Primer opcional   -->
+                                                            <div class="col-md-7 my-auto">
+                                                                <!-- input donde meto la informacion del username    -->
+                                                                <input class="form-control" type="text" name="username" id="username"/>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Segundo grupo   -->
+                                                        <div class="form-group row my-3">
+                                                            <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{login.password}]]</label>
+                                                            <div class="col-md-7 my-auto">
+                                                                <!-- input donde meto la informacion del passwd    -->
+                                                                <input class="form-control" type="password" name="password" id="password"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-footer col text-center">
+                                                            <button class="btn btn-primary" >
+                                                                <!-- En nuestro controlador creamos una accion para registrar nuevos usuarios   -->
+                                                                <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a></button>
+                                                            <button class="btn btn-info" >         
+                                                                <a th:href="@{/registro/recordar}" class="btn"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a></button>
+                                                            <!-- Toma el valor del username y password antes agregados y lo envia a la accion de login    -->
+                                                            <button class="btn btn-success" type="submit">
+                                                                <span class="btn"><i class="fas fa-sign-in-alt"></i>
+                                                                    [[#{login.login}]]</span></button>
+                                                        </div>
+                                                    </form>                            
+                                                </div>
+                                            </div>
+                                            <div th:if="${param.error != null}">
+                                                <h3>[[#{error.login}]]</h3>
+                                            </div>
+                                        </div>
+                                        </div>           
+                                        </div>
+                                        <footer th:replace="~{layout/plantilla :: footer}"/>
+                                        </body>
+                                        </html>
